@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class MenuController1 : MonoBehaviour {
+public class MenuController : MonoBehaviour {
 
     public GameObject tutorialText;
 

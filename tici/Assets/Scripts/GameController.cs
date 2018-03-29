@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using System;
 
 [System.Serializable]
 public class Player
@@ -28,9 +29,12 @@ public class GameController : MonoBehaviour
     public Player playerO;
     public PlayerColor activePlayerColor;
     public PlayerColor inactivePlayerColor;
+    public Text counterText;
+    public int countdownTime;
 
     private string playerSide;
     private int moveCount;
+    private int counter;
 
     void Awake()
     {
@@ -67,6 +71,7 @@ public class GameController : MonoBehaviour
     {
         SetBoardInteractable(true);
         SetPlayerButtons(false);
+        restartCounter();
     }
 
     public string GetPlayerSide()
@@ -131,6 +136,7 @@ public class GameController : MonoBehaviour
         {
             SetPlayerColors(playerO, playerX);
         }
+        restartCounter();
     }
 
     void SetPlayerColors(Player newPlayer, Player oldPlayer)
@@ -154,6 +160,7 @@ public class GameController : MonoBehaviour
             SetGameOverText(winningPlayer + " Wins!");
         }
         restartButton.SetActive(true);
+        StopAllCoroutines();
     }
 
     void SetGameOverText(string value)
@@ -197,4 +204,35 @@ public class GameController : MonoBehaviour
         playerO.panel.color = inactivePlayerColor.panelColor;
         playerO.text.color = inactivePlayerColor.textColor;
     }
+
+    private IEnumerator counting()
+    {
+        Debug.Log("Starting at  " + counter);
+        while (counter > 0)
+        {
+            yield return new WaitForSeconds(1.0f);
+            counter -= 1;
+            Debug.Log("counting " + counter);
+        }
+        ChangeSides();
+    }
+
+    private void restartCounter()
+    {
+        StopAllCoroutines();
+        counter = countdownTime;
+        StartCoroutine(counting());
+    }
+
+    private void Update()
+    {
+        
+        counterText.text = "" + counter;
+
+        
+        
+    }
+        
+
 }
+

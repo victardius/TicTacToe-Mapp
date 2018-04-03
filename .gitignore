@@ -32,8 +32,3 @@ sysinfo.txt
 # Builds
 *.apk
 *.unitypackage
-tici/Library/CurrentLayout.dwlt
-tici/Library/assetDatabase3
-tici/.vs/tici/v15/sqlite3/storage.ide
-tici/Library/CurrentLayout.dwlt
-tici/Library/ScriptAssemblies/Assembly-CSharp.dll.mdb

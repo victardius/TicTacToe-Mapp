@@ -34,18 +34,26 @@ public class GameController : MonoBehaviour
     public Sprite reset;
     public Text counterText;
     public int countdownTime;
+    public GameObject darkBackground;
+    public Text playerXScore;
+    public Text playerOScore;
 
 
     private string playerSide;
     private int moveCount;
     private int counter;
+    private int xScore;
+    private int oScore;
 
     void Awake()
     {
         SetGameControllerReferenceOnButtons();
         gameOverPanel.SetActive(false);
         moveCount = 0;
+        xScore = 0;
+        oScore = 0;
         restartButton.SetActive(false);
+        darkBackground.SetActive(false);
     }
 
     void SetGameControllerReferenceOnButtons()
@@ -166,8 +174,13 @@ public class GameController : MonoBehaviour
         else
         {
             SetGameOverText(winningPlayer + " Wins!");
+            if (winningPlayer == "X")
+                xScore += 1;
+            else
+                oScore += 1;
         }
         restartButton.SetActive(true);
+        darkBackground.SetActive(true);
         StopAllCoroutines();
     }
 
@@ -182,6 +195,7 @@ public class GameController : MonoBehaviour
         moveCount = 0;
         gameOverPanel.SetActive(false);
         restartButton.SetActive(false);
+        darkBackground.SetActive(false);
         SetPlayerButtons(true);
         SetPlayerColorsInactive();
 
@@ -235,9 +249,10 @@ public class GameController : MonoBehaviour
     {
         
         counterText.text = "" + counter;
+        playerXScore.text = "" + xScore;
+        playerOScore.text = "" + oScore;
 
-        
-        
+
     }
         
 

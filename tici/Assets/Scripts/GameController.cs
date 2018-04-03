@@ -14,23 +14,27 @@ public class Player
 [System.Serializable]
 public class PlayerColor
 {
-    public Color panelColor;
-    public Color textColor;
+    public Sprite playerImage;
 }
 
 public class GameController : MonoBehaviour
 {
 
     public Text[] buttonList;
+    public Button[] gridList;
     public GameObject gameOverPanel;
     public Text gameOverText;
     public GameObject restartButton;
     public Player playerX;
     public Player playerO;
-    public PlayerColor activePlayerColor;
-    public PlayerColor inactivePlayerColor;
+    public PlayerColor activePlayerColorX;
+    public PlayerColor inactivePlayerColorX;
+    public PlayerColor activePlayerColorO;
+    public PlayerColor inactivePlayerColorO;
+    public Sprite reset;
     public Text counterText;
     public int countdownTime;
+
 
     private string playerSide;
     private int moveCount;
@@ -57,11 +61,11 @@ public class GameController : MonoBehaviour
         playerSide = startingSide;
         if (playerSide == "X")
         {
-            SetPlayerColors(playerX, playerO);
+            SetPlayerColorsX(playerX, playerO);
         }
         else
         {
-            SetPlayerColors(playerO, playerX);
+            SetPlayerColorsO(playerO, playerX);
         }
 
         StartGame();
@@ -130,21 +134,25 @@ public class GameController : MonoBehaviour
         playerSide = (playerSide == "X") ? "O" : "X";
         if (playerSide == "X")
         {
-            SetPlayerColors(playerX, playerO);
+            SetPlayerColorsX(playerX, playerO);
         }
         else
         {
-            SetPlayerColors(playerO, playerX);
+            SetPlayerColorsO(playerO, playerX);
         }
         restartCounter();
     }
 
-    void SetPlayerColors(Player newPlayer, Player oldPlayer)
+    void SetPlayerColorsX(Player newPlayer, Player oldPlayer)
     {
-        newPlayer.panel.color = activePlayerColor.panelColor;
-        newPlayer.text.color = activePlayerColor.textColor;
-        oldPlayer.panel.color = inactivePlayerColor.panelColor;
-        oldPlayer.text.color = inactivePlayerColor.textColor;
+        newPlayer.panel.sprite = activePlayerColorX.playerImage;
+        oldPlayer.panel.sprite = inactivePlayerColorO.playerImage;
+    }
+
+    void SetPlayerColorsO(Player newPlayer, Player oldPlayer)
+    {
+        newPlayer.panel.sprite = activePlayerColorO.playerImage;
+        oldPlayer.panel.sprite = inactivePlayerColorX.playerImage;
     }
 
     void GameOver(string winningPlayer)
@@ -180,6 +188,7 @@ public class GameController : MonoBehaviour
         for (int i = 0; i < buttonList.Length; i++)
         {
             buttonList[i].text = "";
+            gridList[i].image.sprite = reset;
         }
     }
 
@@ -199,10 +208,8 @@ public class GameController : MonoBehaviour
 
     void SetPlayerColorsInactive()
     {
-        playerX.panel.color = inactivePlayerColor.panelColor;
-        playerX.text.color = inactivePlayerColor.textColor;
-        playerO.panel.color = inactivePlayerColor.panelColor;
-        playerO.text.color = inactivePlayerColor.textColor;
+        playerX.panel.sprite = inactivePlayerColorX.playerImage;
+        playerO.panel.sprite = inactivePlayerColorO.playerImage;
     }
 
     private IEnumerator counting()

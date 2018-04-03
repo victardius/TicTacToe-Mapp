@@ -66,10 +66,10 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 0, g: 1, b: 0.91724133, a: 1}
-    m_HighlightedColor: {r: 0, g: 1, b: 0.46206903, a: 1}
-    m_PressedColor: {r: 0.8206897, g: 1, b: 0, a: 1}
-    m_DisabledColor: {r: 0.5, g: 0.5, b: 0.5, a: 0.5019608}
+    m_NormalColor: {r: 0.44117647, g: 0.44117647, b: 0.44117647, a: 0.741}
+    m_HighlightedColor: {r: 1, g: 1, b: 1, a: 0.839}
+    m_PressedColor: {r: 1, g: 1, b: 1, a: 0.54901963}
+    m_DisabledColor: {r: 1, g: 1, b: 1, a: 1}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -111,7 +111,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0, b: 0.84827566, a: 1}
+  m_Color: {r: 1, g: 0, b: 0.84827566, a: 0}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -146,6 +146,8 @@ MonoBehaviour:
   button: {fileID: 114238880958099388}
   buttonText: {fileID: 114358359696155990}
   playerSide: X
+  playerX: {fileID: 21300004, guid: 5808d955b3763854692af914e6ae69ca, type: 3}
+  playerO: {fileID: 21300010, guid: 5808d955b3763854692af914e6ae69ca, type: 3}
 --- !u!114 &114800400685896452
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -165,8 +167,8 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: 3fcd5e4d58b54574d98581ed20a6eac5, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4

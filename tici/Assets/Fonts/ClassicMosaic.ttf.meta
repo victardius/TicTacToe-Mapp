@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: 0b60cf5e418bb9f489db274eeb5cd85a
+timeCreated: 1522761737
+licenseType: Free
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Classic Mosaic
+  fontNames:
+  - Classic Mosaic
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

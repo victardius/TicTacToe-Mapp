@@ -254,7 +254,22 @@ public class GameController : MonoBehaviour
 
 
     }
-        
+
+    private void Start()
+    {
+        Screen.autorotateToLandscapeLeft = true;
+
+        Screen.autorotateToLandscapeRight = true;
+
+        Screen.autorotateToPortrait = false;
+
+        Screen.autorotateToPortraitUpsideDown = false;
+
+        Screen.orientation = ScreenOrientation.AutoRotation;
+
+        Screen.orientation = ScreenOrientation.LandscapeLeft;
+    }
+
 
 }
 
